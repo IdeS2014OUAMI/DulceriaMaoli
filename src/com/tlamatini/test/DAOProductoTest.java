@@ -12,7 +12,7 @@ import com.tlamatini.modelo.Producto;
 import com.tlamatini.persistencia.DAOProducto;
 
 public class DAOProductoTest {
-	int idProducto = 2;
+	int idProducto = 4;
 	String nombre = "PruebaJUnit";
 	String descripcion = "agregaProducto y buscaProducto";
 	Date fechaCaducidad = new Date(2020/02/02); // 01:02:03;
