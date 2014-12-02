@@ -136,6 +136,11 @@ public class ControlVenta {
 		}
 		
 	}
+	public void agregaDescuento(double importeDes,double descuen){
+		
+		venta.setDescuento(descuen);
+		venta.setImporteDescuento(importeDes);
+	}
 	
 	/**
 	 * calcula total
@@ -148,7 +153,7 @@ public class ControlVenta {
 		for(int i = 0;i<subTotales.size();i++){
 			total = total + subTotales.get(i);
 		}
-		
+	
 		venta.setImporte(total);
 		
 		return total;

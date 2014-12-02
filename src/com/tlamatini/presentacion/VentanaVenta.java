@@ -66,8 +66,8 @@ public class VentanaVenta extends JFrame {
 	private JTextField textField_1TotalConDescuento;
 	private final JButton btnDescuentos = new JButton("Descuentos");
 	LinkedList<Double> listaDescuento=new LinkedList<Double>();
-	
-
+	private double por;
+	private double r;
 	/**
 	 * Create the frame.
 	 */
@@ -147,7 +147,7 @@ public class VentanaVenta extends JFrame {
 								
 								// Cuando no hay descuento y la compra es menor a $1000
 								if(cVenta.calculaTotal(subTotales)<=500){
-									double totalD,r,x;
+									double totalD,x;
 									if(listaDescuento.get(0)==0){
 										totalD=cVenta.calculaTotal(subTotales);
 										r=totalD;
@@ -164,41 +164,42 @@ public class VentanaVenta extends JFrame {
 									System.out.println("No hay descuento");
 								}else{
 									if(cVenta.calculaTotal(subTotales)>500&&cVenta.calculaTotal(subTotales)<=1000){
-										double por=listaDescuento.get(1);
+										por=listaDescuento.get(1);
 										double x= cVenta.calculaTotal(subTotales)*por;
 										double totalD=x/100;
-										double r=cVenta.calculaTotal(subTotales)-totalD;
+										r=cVenta.calculaTotal(subTotales)-totalD;
 										textField.setText(String.valueOf(listaDescuento.get(1)));
 										textField_1TotalConDescuento.setText(String.valueOf(r));
 										System.out.println("Descuento del 5% = "+r);
 									}
 									if(cVenta.calculaTotal(subTotales)>1000&&cVenta.calculaTotal(subTotales)<=2000){
-										double por=listaDescuento.get(2);
+										por=listaDescuento.get(2);
 										double x= cVenta.calculaTotal(subTotales)*por;
 										double totalD=x/100;
-										double r=cVenta.calculaTotal(subTotales)-totalD;
+										r=cVenta.calculaTotal(subTotales)-totalD;
 										textField.setText(String.valueOf(listaDescuento.get(2)));
 										textField_1TotalConDescuento.setText(String.valueOf(r));
 										System.out.println("Descuento del 7% = "+r);
 									}
 									if(cVenta.calculaTotal(subTotales)>2000&&cVenta.calculaTotal(subTotales)<=3000){
-										double por=listaDescuento.get(3);
+										por=listaDescuento.get(3);
 										double x= cVenta.calculaTotal(subTotales)*por;
 										double totalD=x/100;
-										double r=cVenta.calculaTotal(subTotales)-totalD;
+										r=cVenta.calculaTotal(subTotales)-totalD;
 										textField.setText(String.valueOf(listaDescuento.get(3)));
 										textField_1TotalConDescuento.setText(String.valueOf(r));
 										System.out.println("Descuento del 10% = "+r);
 									}
 									if(cVenta.calculaTotal(subTotales)>3000){
-										double por=listaDescuento.get(4);
+										por=listaDescuento.get(4);
 										double x= cVenta.calculaTotal(subTotales)*por;
 										double totalD=x/100;
-										double r=cVenta.calculaTotal(subTotales)-totalD;
+										r=cVenta.calculaTotal(subTotales)-totalD;
 										textField.setText(String.valueOf(listaDescuento.get(4)));
 										textField_1TotalConDescuento.setText(String.valueOf(r));
 										System.out.println("Descuento del 12% = "+ r);
 									}
+									cVenta.agregaDescuento(r,por);
 								}
 								
 								
@@ -227,7 +228,7 @@ public class VentanaVenta extends JFrame {
 						
 						// Cuando no hay descuento y la compra es menor a $1000
 						if(cVenta.calculaTotal(subTotales)<=500){
-							double totalD,r,x;
+							double totalD,x;
 							if(listaDescuento.get(0)==0){
 								totalD=cVenta.calculaTotal(subTotales);
 								r=totalD;
@@ -242,41 +243,43 @@ public class VentanaVenta extends JFrame {
 							System.out.println("No hay descuento");
 						}else{
 							if(cVenta.calculaTotal(subTotales)>500&&cVenta.calculaTotal(subTotales)<=1000){
-								double por=listaDescuento.get(1);
+								por=listaDescuento.get(1);
 								double x= cVenta.calculaTotal(subTotales)*por;
 								double totalD=x/100;
-								double r=cVenta.calculaTotal(subTotales)-totalD;
+								r=cVenta.calculaTotal(subTotales)-totalD;
 								textField.setText(String.valueOf(listaDescuento.get(1)));
 								textField_1TotalConDescuento.setText(String.valueOf(r));
 								System.out.println("Descuento del 5% = "+r);
 							}
 							if(cVenta.calculaTotal(subTotales)>1000&&cVenta.calculaTotal(subTotales)<=2000){
-								double por=listaDescuento.get(2);
+								por=listaDescuento.get(2);
 								double x= cVenta.calculaTotal(subTotales)*por;
 								double totalD=x/100;
-								double r=cVenta.calculaTotal(subTotales)-totalD;
+								r=cVenta.calculaTotal(subTotales)-totalD;
 								textField.setText(String.valueOf(listaDescuento.get(2)));
 								textField_1TotalConDescuento.setText(String.valueOf(r));
 								System.out.println("Descuento del 7% = "+r);
 							}
 							if(cVenta.calculaTotal(subTotales)>2000&&cVenta.calculaTotal(subTotales)<=3000){
-								double por=listaDescuento.get(3);
+								por=listaDescuento.get(3);
 								double x= cVenta.calculaTotal(subTotales)*por;
 								double totalD=x/100;
-								double r=cVenta.calculaTotal(subTotales)-totalD;
+								r=cVenta.calculaTotal(subTotales)-totalD;
 								textField.setText(String.valueOf(listaDescuento.get(3)));
 								textField_1TotalConDescuento.setText(String.valueOf(r));
 								System.out.println("Descuento del 10% = "+r);
 							}
 							if(cVenta.calculaTotal(subTotales)>3000){
-								double por=listaDescuento.get(4);
+								por=listaDescuento.get(4);
 								double x= cVenta.calculaTotal(subTotales)*por;
 								double totalD=x/100;
-								double r=cVenta.calculaTotal(subTotales)-totalD;
+								r=cVenta.calculaTotal(subTotales)-totalD;
 								textField.setText(String.valueOf(listaDescuento.get(4)));
 								textField_1TotalConDescuento.setText(String.valueOf(r));
 								System.out.println("Descuento del 12% = "+r);
 							}
+							
+							cVenta.agregaDescuento(r,por);
 						}
 					}else{
 						JOptionPane.showMessageDialog(null, "La clave de producto es incorrecta");
@@ -351,6 +354,7 @@ public class VentanaVenta extends JFrame {
 		try {
 			jButtonConfirmarVenta.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
+				
 					if(cVenta.agregaVenta()){
 						JOptionPane.showMessageDialog(null, "venta realizada con exito");
 						dispose();
@@ -398,7 +402,7 @@ public class VentanaVenta extends JFrame {
 						
 						// Cuando no hay descuento y la compra es menor a $1000
 						if(cVenta.calculaTotal(subTotales)<=500){
-							double totalD,r,x;
+							double totalD,x;
 							if(listaDescuento.get(0)==0){
 								totalD=cVenta.calculaTotal(subTotales);
 								r=totalD;
@@ -413,41 +417,42 @@ public class VentanaVenta extends JFrame {
 							System.out.println("No hay descuento");
 						}else{
 							if(cVenta.calculaTotal(subTotales)>500&&cVenta.calculaTotal(subTotales)<=1000){
-								double por=listaDescuento.get(1);
+								por=listaDescuento.get(1);
 								double x= cVenta.calculaTotal(subTotales)*por;
 								double totalD=x/100;
-								double r=cVenta.calculaTotal(subTotales)-totalD;
+								r=cVenta.calculaTotal(subTotales)-totalD;
 								textField.setText(String.valueOf(listaDescuento.get(1)));
 								textField_1TotalConDescuento.setText(String.valueOf(r));
 								System.out.println("Descuento del 5% = "+r);
 							}
 							if(cVenta.calculaTotal(subTotales)>1000&&cVenta.calculaTotal(subTotales)<=2000){
-								double por=listaDescuento.get(2);
+								por=listaDescuento.get(2);
 								double x= cVenta.calculaTotal(subTotales)*por;
 								double totalD=x/100;
-								double r=cVenta.calculaTotal(subTotales)-totalD;
+								r=cVenta.calculaTotal(subTotales)-totalD;
 								textField.setText(String.valueOf(listaDescuento.get(2)));
 								textField_1TotalConDescuento.setText(String.valueOf(r));
 								System.out.println("Descuento del 7% = "+r);
 							}
 							if(cVenta.calculaTotal(subTotales)>2000&&cVenta.calculaTotal(subTotales)<=3000){
-								double por=listaDescuento.get(3);
+								por=listaDescuento.get(3);
 								double x= cVenta.calculaTotal(subTotales)*por;
 								double totalD=x/100;
-								double r=cVenta.calculaTotal(subTotales)-totalD;
+								r=cVenta.calculaTotal(subTotales)-totalD;
 								textField.setText(String.valueOf(listaDescuento.get(3)));
 								textField_1TotalConDescuento.setText(String.valueOf(r));
 								System.out.println("Descuento del 10% = "+r);
 							}
 							if(cVenta.calculaTotal(subTotales)>3000){
-								double por=listaDescuento.get(4);
+								por=listaDescuento.get(4);
 								double x= cVenta.calculaTotal(subTotales)*por;
 								double totalD=x/100;
-								double r=cVenta.calculaTotal(subTotales)-totalD;
+								r=cVenta.calculaTotal(subTotales)-totalD;
 								textField.setText(String.valueOf(listaDescuento.get(4)));
 								textField_1TotalConDescuento.setText(String.valueOf(r));
 								System.out.println("Descuento del 12% = "+r);
 							}
+							cVenta.agregaDescuento(r,por);
 						}
 					}else{
 						JOptionPane.showMessageDialog(null, "selecciona un producto");
