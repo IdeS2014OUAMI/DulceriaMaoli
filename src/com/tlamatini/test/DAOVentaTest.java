@@ -14,14 +14,15 @@ import com.tlamatini.persistencia.DAOVenta;
 
 public class DAOVentaTest {
 	
-	int folio=1;
+	int folio=1, idUsuario = 1;
 	ArrayList<Producto> productos=new ArrayList<Producto>();;
 	double importe = 123.4;
 	Date fechaOperacion = new Date(2014/02/02);
 	String nick = "admin";
 	ConexionDB conexion = new ConexionDB();
+	boolean iconn = conexion.crearConexion();
 	DAOVenta daoVenta = new DAOVenta(conexion);
-	Venta v = new Venta();
+	Venta v = new Venta(fechaOperacion, idUsuario);
 	
 	Date fechaInicio = new Date(2014/01/01); 
 	Date fechaFin = new Date(2015/01/01);
