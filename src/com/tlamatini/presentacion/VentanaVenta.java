@@ -24,6 +24,7 @@ import javax.swing.JList;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.ScrollPaneConstants;
 
+import com.tlamatini.modelo.Ticket;
 import com.tlamatini.modelo.Producto;
 import com.tlamatini.modelo.Usuario;
 import com.tlamatini.negocio.ControlVenta;
@@ -68,6 +69,7 @@ public class VentanaVenta extends JFrame {
 	LinkedList<Double> listaDescuento=new LinkedList<Double>();
 	private double por;
 	private double r;
+    private ArrayList<Producto> listaProductos=new ArrayList<Producto>();
 	/**
 	 * Create the frame.
 	 */
@@ -113,6 +115,20 @@ public class VentanaVenta extends JFrame {
 					
 					Producto producto = cVenta.agregaProductoAVenta(Integer.parseInt(textFieldIdProducto.getText()),Integer.parseInt(textFieldCantidad.getText()));
 					int nuevaCantidad = Integer.parseInt(textFieldCantidad.getText());
+					if(listaProductos.size()==0){
+						listaProductos.add(producto);
+					}else{
+						for(int i=0;i<listaProductos.size();i++){
+							System.out.println("soy el id del producto exisitente"+listaProductos.get(i).getIdProducto());
+							System.out.println("soy el id del producto agregar"+producto.getIdProducto());
+							if(listaProductos.get(i).getIdProducto()!=producto.getIdProducto()){
+								listaProductos.add(producto);
+							}else{
+								break;
+							}
+						}
+					}
+					
 					
 					existe:{
 					if(producto != null){
@@ -356,7 +372,25 @@ public class VentanaVenta extends JFrame {
 				public void actionPerformed(ActionEvent arg0) {
 				
 					if(cVenta.agregaVenta()){
+						
 						JOptionPane.showMessageDialog(null, "venta realizada con exito");
+						for(int indice = 0; indice < listaProductos.size(); indice++){
+				    	//	ventas.add(listaProductos.get(indice).getNombre()+" "+listaProductos.get(indice).getCostoUnitario()+"\n");   	
+				    		//acumulado=(float) (acumulado+listaProductos.get(indice).getCostoUnitario());
+				    		//Iterator i = (Iterator) productosVenta.iterator();
+				    		System.out.println(listaProductos.get(indice).getNombre()+" "+listaProductos.get(indice).getCostoUnitario()+"\n");
+				    	}
+						Ticket prueba=new Ticket();
+						String dato=prueba.guardarVentaPDF(listaProductos,r);
+						try{
+							  //definiendo la ruta en la propiedad file
+							  Runtime.getRuntime().exec("cmd /c start "+dato);
+							  JOptionPane.showMessageDialog(null, "Se Genero Ticket");
+							  }catch(IOException e){
+							     e.printStackTrace();
+							  }
+
+
 						dispose();
 						
 					}else{
