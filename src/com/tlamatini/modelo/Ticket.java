@@ -77,7 +77,7 @@ public class Ticket implements Iterable<Producto>
 	    	for(indice = 0; indice < productosVenta.size(); indice++){
 	    		System.out.println("Imprime 5");
 	    		
-	    		costo=productosVenta.get(indice).getCostoUnitario()*.15;
+	    		costo=productosVenta.get(indice).getCostoUnitario()*.10;
 	    	   	costo=costo+productosVenta.get(indice).getCostoUnitario();
 	    	   	ventas.add(productosVenta.get(indice).getNombre()+": \t          "+costo+": \t     "+productosVenta.get(indice).getCantidad()+"        : \t "+costo*productosVenta.get(indice).getCantidad()+"\n");  
 	    	   	
