@@ -39,7 +39,6 @@ import java.util.LinkedList;
 
 public class VentanaVenta extends JFrame {
 
-	
 	private VentanaPrincipal vPrincipal;
 	private Usuario usuario;
 	private File miDir=new File(".");

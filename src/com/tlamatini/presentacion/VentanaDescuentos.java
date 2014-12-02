@@ -20,6 +20,7 @@ import java.awt.event.ActionEvent;
 import java.util.LinkedList;
 
 public class VentanaDescuentos extends JFrame {
+	
 
 	private JPanel contentPane;
 	private JTextField textFieldsin;
